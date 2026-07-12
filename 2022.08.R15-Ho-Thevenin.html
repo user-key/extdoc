@@ -1,5 +1,5 @@
 <!--
-        2023.08.R15-Ho-Thevenin.html
+        2022.08.R15-Ho-Thevenin.html
         
         Copyright 2026 yuuzaki masahiro <user-key@joy.email.ne.jp>
         
@@ -25,7 +25,7 @@
 <body>
 	交流回路なので<a href="https://ja.wikipedia.org/wiki/%E3%83%86%E3%83%96%E3%83%8A%E3%83%B3%E3%81%AE%E5%AE%9A%E7%90%86">
 		<b>鳳</b>・テブナンの定理</a>を使って導いてみる。<br>
-	<a href="./2023.08.R15.html">前回、等価回路とエネルギー保存の法則から問題を解いてみた</a>が、
+	<a href="./2022.08.R15.html">前回、等価回路とエネルギー保存の法則から問題を解いてみた</a>が、
 	今回は一相あたりリアクトル=9[Ω]と等価抵抗=12[Ω]の直列回路にY結線された等価回路と
 	抵抗４本部分に掛かる電圧は約１６０[V]の正三角形まで導いたところまではそのまま使う。<br>
 	まず、「回路図通りに３φ２００[V]の電源に９[Ω]のLが通った後に抵抗が４本繋がっている回路」と
@@ -35,27 +35,25 @@
 	では、Rを取り外した回路のテブナン等価回路を考える<br>
 	内部抵抗Roを計算していくが６０[Ω]は電圧源を短絡にした時に同時に短絡されるため消え結果２個の２０[Ω]が並列になったものが残るだけの為
 	\[
-	 　Ro = \frac{20}{2} = 10[Ω]
+		Ro = \frac{20}{2} = 10[Ω]
 	\]
 	まず、開放電圧 Voはb'c'の中間点(x)とa'間の値となる為、三相電源の中性点(N)とした時、X-N:N-b'(又はc'):X-b'(又はc')は\(1:2:\sqrt{3}\)の為
 	\begin{align*}
 		Vo	&= 等価回路の12[Ω]に掛かる相電圧\times 1.5 \\ 
 			&=12\times 7.7\times 1.5 \\ 
 			&=138.6[V] \\ 
-		\therefore\\
-		i	&= \frac{Vo}{Ro+R} \\
+		\therefore\quad i	&= \frac{Vo}{Ro+R} \\
 		R	&= \frac{Vo}{i}-Ro \\ 
 			&= \frac{138.6}{7.7}-10 \\
 			&= \frac{6\times 2\times 7.7}{7.7}\times \frac{3}{2}-10 \\
 			&= 8 [Ω]
 	\end{align*}
-	又は、線間電圧:Voは2:\(\sqrt{3}\)の為
+	又は、Vo は線間電圧（正三角形の一辺）の\(\frac{\sqrt{3}}{2}\) 倍（高さ）となる為
 	\begin{align*}
 		Vo	&= 線間電圧(約160[V])\times \frac{\sqrt{3}}{2} \\ 
 			&= \frac{12\times 7.7\times \sqrt{3}^2}{2} \\ 
 			&=138.6[V] \\ 
-		\therefore\\
-		R	&= \frac{Vo}{i}-Ro \\ 
+		\therefore\quad R	&= \frac{Vo}{i}-Ro \\ 
 			&= \frac{6\times 2\times 7.7\times 3}{2\times 7.7}-10 \\
 			&= 8 [Ω]
 	\end{align*}
