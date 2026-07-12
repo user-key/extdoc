@@ -35,27 +35,25 @@
 	では、Rを取り外した回路のテブナン等価回路を考える<br>
 	内部抵抗Roを計算していくが６０[Ω]は電圧源を短絡にした時に同時に短絡されるため消え結果２個の２０[Ω]が並列になったものが残るだけの為
 	\[
-	 　Ro = \frac{20}{2} = 10[Ω]
+		Ro = \frac{20}{2} = 10[Ω]
 	\]
 	まず、開放電圧 Voはb'c'の中間点(x)とa'間の値となる為、三相電源の中性点(N)とした時、X-N:N-b'(又はc'):X-b'(又はc')は\(1:2:\sqrt{3}\)の為
 	\begin{align*}
 		Vo	&= 等価回路の12[Ω]に掛かる相電圧\times 1.5 \\ 
 			&=12\times 7.7\times 1.5 \\ 
 			&=138.6[V] \\ 
-		\therefore\\
-		i	&= \frac{Vo}{Ro+R} \\
+		\therefore\quad i	&= \frac{Vo}{Ro+R} \\
 		R	&= \frac{Vo}{i}-Ro \\ 
 			&= \frac{138.6}{7.7}-10 \\
 			&= \frac{6\times 2\times 7.7}{7.7}\times \frac{3}{2}-10 \\
 			&= 8 [Ω]
 	\end{align*}
-	又は、線間電圧:Voは2:\(\sqrt{3}\)の為
+	又は、Vo は線間電圧（正三角形の一辺）の\(\frac{\sqrt{3}}{2}\) 倍（高さ）となる為
 	\begin{align*}
 		Vo	&= 線間電圧(約160[V])\times \frac{\sqrt{3}}{2} \\ 
 			&= \frac{12\times 7.7\times \sqrt{3}^2}{2} \\ 
 			&=138.6[V] \\ 
-		\therefore\\
-		R	&= \frac{Vo}{i}-Ro \\ 
+		\therefore\quad R	&= \frac{Vo}{i}-Ro \\ 
 			&= \frac{6\times 2\times 7.7\times 3}{2\times 7.7}-10 \\
 			&= 8 [Ω]
 	\end{align*}
