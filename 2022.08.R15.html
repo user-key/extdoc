@@ -18,6 +18,12 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 0.20" />
 	<script type="text/javascript" src="config.js" defer></script>
+	<script type="text/javascript">
+	window.MathJax = {
+	  loader: {load: ['[tex]/cancel']},
+	  tex: {packages: {'[+]': ['cancel']}}
+	};
+	</script>
 	<script type="text/javascript" id="MathJax-script" async
 	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 	</script>
@@ -28,24 +34,29 @@
     <h1>令和4年度上期 電験三種 理論 問15 別解 エネルギー保存の法則編</h1>
 	ゲッ電験三種じゃ不平衡Δ-Y変換って出てこないんとちゃうんかい。<br>
 	と思った方安心してください(ってもう遅いけど…)電力と電圧のベクトル問題と考えると解けるって事で<br><br>
-	(a)の問題文を見ると『端子a,b,c から流入する線電流の大きさは等しい』かつ回路図から線間電圧が等しいので、これは電源側から見ると平衡回路とみなして良い。<br>
+	(a)の問題文を見ると『端子a,b,c から流入する線電流の大きさは等しい』かつ回路図から線間電圧が等しいかつ同じリアクトルが三相共に入っているので、
+	これは電源側から見ると(I,V,\(\cos\phi\)が三相共に等しい為)平衡回路とみなして良い。<br>
 	問題文から必要条件を抽出すると。<br>
 	\[皮相電力:S = \sqrt{3} \times V I = \sqrt{3} \times 200 \times 7.7 \fallingdotseq 2.667 [\mathrm{kVA}]\]<br>
 	\[無効電力:Q = 1.6 [\mathrm{kvar}]\]<br>
 	と、ここ迄が問題文から抽出できます。力率\(\cos\phi\)を導くには回路全体の有効電力P<br>
 	\begin{equation}
-	 \tag{P} P = \sqrt{S^2 - Q^2} = \sqrt{2.667^2 - 1.6^2} \fallingdotseq 2.134 [\mathrm{kW}] \label{power}<br>
-	\end{equation}
+	 \tag{P} P = \sqrt{S^2 - Q^2} = \sqrt{2.667^2 - 1.6^2} \fallingdotseq 2.134 [\mathrm{kW}] \label{power}
+	\end{equation}<br>
 	を導いてから、\[力率:\cos\phi = \frac{P}{S} = \frac{2.134}{2.667} \fallingdotseq 0.7999\]<br>
 	よって(4) 0.8が正解。<br><br>
-	(b)の問題に行く前に等価回路考えると、リアクトル＋抵抗の直列回路がY接続になったと思えばその抵抗値(\(R_Y\))は	\(P = 3i^2R_Y\)より、Y変換後の1相当たりの抵抗値は
+	(b)の問題に行く前に少し立ち止まって、この電源から見ると平衡回路の等価回路を考えると、
+	リアクトル＋抵抗の直列回路がY接続になったと思えばその抵抗値(\(R_Y\))は	\(P = 3i^2R_Y\)より、Y変換後の1相当たりの抵抗値は
 	\begin{equation}
-	　\tag{$R_Y$} R_Y = \frac{P}{3i^2} = \frac{2.134 \times 10^3}{3 \times 7.7^2} \fallingdotseq 12.0 [\Omega] \label{b}<br>
+	　\tag{$R_Y$} R_Y = \frac{P}{3i^2} = \frac{2.134 \times 10^3}{3 \times 7.7^2} \fallingdotseq 12.0 [\Omega] \label{b}
 	\end{equation}
 	となり一相あたり \(L = 9\,[\Omega]\) と \(R_Y = 12\,[\Omega]\) の直列回路がY結線されたものと言えます。<br>
-	<a href="https://denken3s.com/r4f-r15/">不平衡Δ-Y変換が出来る人</a>は12\([\Omega]\)からRに繋がった部分のΔ-Y変換後の数値を引けば答えが出ます。<br><br>
 	時間が無く運に任せる場合、式\eqref{b}からRの値は12\([\Omega]\)以下なので答えの選択肢(1),(2)の二択で勝負も有りかと。<br>
-	きちんとRを導くには<a href="https://denken3s.com/d-y-transform/">不平衡Δ-Y変換を導く</a>より、別の方法でRを求めた方が面白そうなので
+	<a href="https://denken3s.com/r4f-r15/">不平衡Δ-Y変換が出来る人</a>は12\([\Omega]\)からRに繋がった部分のΔ-Y変換後の数値を引くか、
+	\(3R_Y-\frac{R_{ab}R_{bc}+R_{bc}R_{ca}+R_{ca}R_{ab}}{R_{ab}+R_{bc}+R_{ca}}
+	=3 \times 12 -\frac{(2 \times 2 \times 6 + 2 \times 2)\cancel{\times 100}}{\cancel{20+60+20}}\)で答えが出ます。<br><br>
+	不平衡Δ-Y変換を忘れた時にRを導くには<a href="https://denken3s.com/d-y-transform/">不平衡Δ-Y変換を導く</a>より、
+	別の方法でRを求めた方が面白そうなので
 	\[式\eqref{power}で導いた有効電力 = 抵抗での消費電力の合計\]が当てはまる値を計算すれば良い。<br>
 	まず
 	\begin{equation}
@@ -60,7 +71,7 @@
 	 \tag{$P_{R60}$} 60[\Omega]\text{での消費電力} = \frac{V_{R60}^2}{60} = \frac{160^2}{60} \fallingdotseq 427 [\mathrm{W}]\label{d}
 	\end{equation}
 	20\([\Omega]\)での消費電力を出す前に事前に20\([\Omega]\)に掛かる電圧\(V_{R20}\)を計算します。<br>
-	ややこしいですが式\eqref{rv}から抵抗部分の電圧は160\([\mathrm{V}]\)の正三角形なので、この正三角形を縦に半分に割る事で、
+	ややこしいですが式\eqref{rv}から20\([\Omega]\)の抵抗に掛かる電圧は問題文の回路図の向きをベースにするとA相頂上、底辺\(V_{R60}\)の160\([\mathrm{V}]\)の正三角形なので、この正三角形を縦に半分に割る事で、
 	\(V_{R60}\text{の半分}=80[\mathrm{V}], 160[\mathrm{V}], 80\sqrt{3}\)と\(1:2:\sqrt{3}\)の直角三角形のベクトルを書けます。
 	ここから
 	\[V_{R20} = \sqrt{80^2 + (80\sqrt{3} - iR)^2} = \sqrt{6400 + 6400 \times 3 -2 \times 80\sqrt{3} \times 7.7R + (7.7R)^2 }=\sqrt{25600 -160\sqrt{3} \times 7.7R + (7.7R)^2 }\]
